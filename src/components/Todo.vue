@@ -50,6 +50,7 @@
         <v-list two-line subheader>
           <v-list-tile
             v-for="(item, index) in items"
+            v-model="items"
             :key="index"
             avatar
           >
@@ -67,7 +68,7 @@
 
             <v-list-tile-action>
               <v-list-tile-action-text>{{ item.category }}</v-list-tile-action-text>
-              <v-btn icon ripple @click="deleteTodo">
+              <v-btn icon ripple @click="deleteTodo(index)">
                 <v-icon color="grey lighten-1">delete</v-icon>
               </v-btn>
             </v-list-tile-action>
