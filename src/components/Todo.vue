@@ -29,6 +29,7 @@
                 <v-icon color="grey lighten-1" v-on="on">event</v-icon>
               </template>
               <v-date-picker v-model="newTodo.datetime" no-title scrollable>
+                <v-btn flat color="primary" @click="newTodo.datetime = ''">Delete</v-btn>
                 <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
                 <v-btn flat color="primary" @click="$refs.menu.save(newTodo.datetime)">OK</v-btn>
               </v-date-picker>
