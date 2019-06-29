@@ -9,6 +9,7 @@
         <v-form
           ref="form"
           lazy-validation
+          @submit.prevent=""
         >
           <v-text-field
             @click:append=""
@@ -29,6 +30,7 @@
           </v-btn>
           <span class="text-sm-left">takeshi</span>
         </v-form>
+        <hr>
         <v-list two-line subheader>
           <v-list-tile
             v-for="item in items"
