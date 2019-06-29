@@ -37,15 +37,20 @@
           </v-btn>
           <span class="text-sm-left">{{newTodo.datetime}}</span>
           <v-btn icon ripple>
-            <v-icon color="grey lighten-1">account_circle</v-icon>
+            <v-menu>
+              <template v-slot:activator="{ on }">
+                <v-icon color="grey lighten-1" v-on="on">account_circle</v-icon>
+              </template>
+              <v-text-field solo append-icon="edit" hide-details v-model="newTodo.asignee" @click.stop=""/> 
+            </v-menu>
           </v-btn>
           <span class="text-sm-left">{{newTodo.asignee}}</span>
         </v-form>
         <hr>
         <v-list two-line subheader>
           <v-list-tile
-            v-for="item in items"
-            :key="item.title"
+            v-for="(item, index) in items"
+            :key="index"
             avatar
             @click=""
           >
