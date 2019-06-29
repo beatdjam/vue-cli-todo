@@ -50,7 +50,6 @@
         <v-list two-line subheader>
           <v-list-tile
             v-for="(item, index) in items"
-            v-model="items"
             :key="index"
             avatar
           >
