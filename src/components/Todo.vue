@@ -18,17 +18,19 @@
             single-line
             outline
             hide-details
+            v-model="newTodo.input"
           />
+          <!-- <v-btn icon ripple>
+            <v-icon color=newTodo.color ?: >folder</v-icon>
+          </v-btn> -->
           <v-btn icon ripple>
             <v-icon color="grey lighten-1">event</v-icon>
           </v-btn>
-          <v-btn icon ripple>
-            <v-icon color="grey lighten-1">folder</v-icon>
-          </v-btn>
+          <span class="text-sm-left">{{newTodo.datetime}}</span>
           <v-btn icon ripple>
             <v-icon color="grey lighten-1">account_circle</v-icon>
           </v-btn>
-          <span class="text-sm-left">takeshi</span>
+          <span class="text-sm-left">{{newTodo.asignee}}</span>
         </v-form>
         <hr>
         <v-list two-line subheader>
@@ -39,15 +41,15 @@
             @click=""
           >
             <v-list-tile-action>
-              <v-checkbox v-model="sound"/>
+              <v-checkbox v-model="item.flag"/>
             </v-list-tile-action>
             <v-list-tile-avatar>
-              <v-icon :class="[item.iconClass]">{{ item.icon }}</v-icon>
+              <v-icon :class="[item.color]">{{ item.icon }}</v-icon>
             </v-list-tile-avatar>
 
             <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              <v-list-tile-sub-title>{{ item.subtitle }}</v-list-tile-sub-title>
+              <v-list-tile-title>{{ item.todo }}</v-list-tile-title>
+              <v-list-tile-sub-title>{{ item.datetime }}</v-list-tile-sub-title>
             </v-list-tile-content>
 
             <v-list-tile-action>
@@ -65,15 +67,24 @@
 
 <script>
   export default {
-    data () {
-      return {
+    data: () => ({
         items: [
-          { icon: 'folder', iconClass: 'red', title: 'Photos', subtitle: 'Jan 9, 2014', asignee : 'takeshi' },
-          { icon: 'folder', iconClass: 'indigo', title: 'Recipes', subtitle: 'Jan 17, 2014', asignee : 'takeshi' },
-          { icon: 'folder', iconClass: '#123456', title: 'Work', subtitle: 'Jan 28, 2014', asignee : 'takeshi' }
-        ]
-      }
-    }
+          { flag : true, icon: 'folder', color: '', todo: 'Photos', datetime: 'Jan 9, 2014', asignee : 'takeshi' },
+          { flag : false, icon: 'folder', color: '', todo: 'Recipes', datetime: 'Jan 17, 2014', asignee : 'takeshi' },
+          { flag : true, icon: 'folder', color: '', todo: 'Work', datetime: 'Jan 28, 2014', asignee : 'takeshi' }
+        ],
+        newTodo : {
+          flag : false,
+          todo : "",
+          icon : "folder",
+          color : "",
+          datetime : "",
+          asignee : ""
+        }
+    }),
+    methods: () => ({
+      
+    })
   }
 </script>
 
