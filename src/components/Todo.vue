@@ -97,6 +97,9 @@
     }),
     methods: {
       addTodo: function () {
+        if (this.newTodo.todo === "") {
+          return
+        }
         const addTodo = Object.assign({}, this.newTodo);
         this.items.push(addTodo)
         this.newTodo = {
