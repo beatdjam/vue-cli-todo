@@ -39,7 +39,7 @@
           <v-btn icon ripple>
             <v-menu>
               <template v-slot:activator="{ on }">
-                <v-icon color="grey lighten-1" v-on="on">account_circle</v-icon>
+                <v-icon color="grey lighten-1" v-on="on">folder</v-icon>
               </template>
               <v-text-field solo append-icon="edit" hide-details v-model="newTodo.category" @click.stop=""/> 
             </v-menu>
