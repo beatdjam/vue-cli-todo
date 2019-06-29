@@ -41,10 +41,10 @@
               <template v-slot:activator="{ on }">
                 <v-icon color="grey lighten-1" v-on="on">account_circle</v-icon>
               </template>
-              <v-text-field solo append-icon="edit" hide-details v-model="newTodo.asignee" @click.stop=""/> 
+              <v-text-field solo append-icon="edit" hide-details v-model="newTodo.category" @click.stop=""/> 
             </v-menu>
           </v-btn>
-          <span class="text-sm-left">{{newTodo.asignee}}</span>
+          <span class="text-sm-left">{{newTodo.category}}</span>
         </v-form>
         <hr>
         <v-list two-line subheader>
@@ -57,9 +57,9 @@
             <v-list-tile-action>
               <v-checkbox v-model="item.flag"/>
             </v-list-tile-action>
-            <v-list-tile-avatar>
+            <!-- <v-list-tile-avatar>
               <v-icon :class="[item.color]">{{ item.icon }}</v-icon>
-            </v-list-tile-avatar>
+            </v-list-tile-avatar> -->
 
             <v-list-tile-content>
               <v-list-tile-title>{{ item.todo }}</v-list-tile-title>
@@ -67,7 +67,7 @@
             </v-list-tile-content>
 
             <v-list-tile-action>
-              <v-list-tile-action-text>{{ item.asignee }}</v-list-tile-action-text>
+              <v-list-tile-action-text>{{ item.category }}</v-list-tile-action-text>
               <v-btn icon ripple>
                 <v-icon color="grey lighten-1">delete</v-icon>
               </v-btn>
@@ -83,9 +83,9 @@
   export default {
     data: () => ({
         items: [
-          { flag : true, icon: 'folder', color: '', todo: 'Photos', datetime: 'Jan 9, 2014', asignee : 'takeshi' },
-          { flag : false, icon: 'folder', color: '', todo: 'Recipes', datetime: 'Jan 17, 2014', asignee : 'takeshi' },
-          { flag : true, icon: 'folder', color: '', todo: 'Work', datetime: 'Jan 28, 2014', asignee : 'takeshi' }
+          { flag : true, icon: 'folder', color: '', todo: '授業の準備', datetime: '2019-06-30', category : '学校' },
+          { flag : false, icon: 'folder', color: '', todo: '夏休みの宿題', datetime: '2019-08-31', category : '学校' },
+          { flag : true, icon: 'folder', color: '', todo: '海に行く', datetime: '2019-07-20', category : '約束' }
         ],
         newTodo : {
           flag : false,
@@ -93,7 +93,7 @@
           icon : "folder",
           color : "",
           datetime : "",
-          asignee : ""
+          category : ""
         }
     }),
     methods: {
@@ -106,7 +106,7 @@
           icon : "folder",
           color : "",
           datetime : "",
-          asignee : ""
+          category : ""
         }
       }
     }
