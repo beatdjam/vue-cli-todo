@@ -24,7 +24,15 @@
             <v-icon color=newTodo.color ?: >folder</v-icon>
           </v-btn> -->
           <v-btn icon ripple>
-            <v-icon color="grey lighten-1">event</v-icon>
+            <v-menu>
+              <template v-slot:activator="{ on }">
+                <v-icon color="grey lighten-1" v-on="on">event</v-icon>
+              </template>
+              <v-date-picker v-model="newTodo.datetime" no-title scrollable>
+                <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
+                <v-btn flat color="primary" @click="$refs.menu.save(newTodo.datetime)">OK</v-btn>
+              </v-date-picker>
+            </v-menu>
           </v-btn>
           <span class="text-sm-left">{{newTodo.datetime}}</span>
           <v-btn icon ripple>
@@ -83,7 +91,7 @@
         }
     }),
     methods: () => ({
-      
+
     })
   }
 </script>
