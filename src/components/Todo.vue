@@ -52,7 +52,6 @@
             v-for="(item, index) in items"
             :key="index"
             avatar
-            @click=""
           >
             <v-list-tile-action>
               <v-checkbox v-model="item.flag"/>
@@ -68,7 +67,7 @@
 
             <v-list-tile-action>
               <v-list-tile-action-text>{{ item.category }}</v-list-tile-action-text>
-              <v-btn icon ripple>
+              <v-btn icon ripple @click="deleteTodo">
                 <v-icon color="grey lighten-1">delete</v-icon>
               </v-btn>
             </v-list-tile-action>
@@ -108,6 +107,9 @@
           datetime : "",
           category : ""
         }
+      },
+      deleteTodo: function (index) {
+        this.items.splice(index, 1)
       }
     }
   }
