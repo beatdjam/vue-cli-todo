@@ -9,16 +9,16 @@
         <v-form
           ref="form"
           lazy-validation
-          @submit.prevent=""
+          @submit.prevent="addTodo"
         >
           <v-text-field
-            @click:append=""
+            @click:append="addTodo"
             append-icon="edit"
             label="Put Your Todo!"
             single-line
             outline
             hide-details
-            v-model="newTodo.input"
+            v-model="newTodo.todo"
           />
           <!-- <v-btn icon ripple>
             <v-icon color=newTodo.color ?: >folder</v-icon>
@@ -96,9 +96,20 @@
           asignee : ""
         }
     }),
-    methods: () => ({
-
-    })
+    methods: {
+      addTodo: function () {
+        const addTodo = Object.assign({}, this.newTodo);
+        this.items.push(addTodo)
+        this.newTodo = {
+          flag : false,
+          todo : "",
+          icon : "folder",
+          color : "",
+          datetime : "",
+          asignee : ""
+        }
+      }
+    }
   }
 </script>
 
