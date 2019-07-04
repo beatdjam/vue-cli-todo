@@ -1,4 +1,5 @@
-# my-project
+# Todo App
+https://beatdjam.github.io/training_vue-cli-todo/
 
 ## Project setup
 ```
